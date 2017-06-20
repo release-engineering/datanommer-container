@@ -1,7 +1,7 @@
 import os
 
 config = dict(
-    environment='stage',
+    environment=os.environ['ENVIRONMENT'],
     zmq_enabled=False,
     stomp_uri=os.environ['UMB_URI'],
     stomp_heartbeat=1000,
