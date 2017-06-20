@@ -5,7 +5,7 @@ LABEL \
     license="GPLv3"
 COPY eng-fedora-25-candidate.repo /etc/yum.repos.d/
 RUN dnf -y update && \
-    dnf -y install datanommer python-fedmsg-meta-umb && \
+    dnf -y install fedmsg-hub datanommer python-fedmsg-meta-umb && \
     dnf -y clean all
 COPY fedmsg.d/ /etc/fedmsg.d/
 USER 1001
