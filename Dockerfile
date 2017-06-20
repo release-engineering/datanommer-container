@@ -4,7 +4,7 @@ LABEL \
     vendor="Factory 2.0" \
     license="GPLv3"
 COPY eng-fedora-25-candidate.repo /etc/yum.repos.d/
-RUN dnf -y --disableplugin=deltarpm update && \
+RUN dnf -y --setopt=deltarpm=no update && \
     dnf -y install fedmsg-hub datanommer python-fedmsg-meta-umb && \
     dnf -y clean all
 COPY fedmsg.d/ /etc/fedmsg.d/
