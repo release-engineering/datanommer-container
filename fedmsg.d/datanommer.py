@@ -10,5 +10,6 @@ config = {
     'datanommer.sqlalchemy.url': 'postgresql://{0}:{1}@{2}/{3}'.format(DB_USERNAME,
                                                                        DB_PASSWORD,
                                                                        DB_HOST,
-                                                                       DB_NAME)
+                                                                       DB_NAME),
+    'datanommer.topic': os.environ['DATANOMMER_TOPIC'],
 }
