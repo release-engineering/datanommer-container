@@ -4,7 +4,10 @@ LABEL \
     vendor="Factory 2.0" \
     license="GPLv3"
 RUN yum -y install epel-release && \
-    yum -y install fedmsg-hub datanommer python2-psycopg2 git && \
+    yum -y install fedmsg-hub \
+                   python-datanommer-consumer datanommer-commands \
+                   python-psycopg2 \
+                   git && \
     yum -y clean all
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
