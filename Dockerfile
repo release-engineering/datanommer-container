@@ -1,9 +1,9 @@
-FROM registry.access.redhat.com/rhel7:latest
+FROM centos:7
 LABEL \
     name="datanommer instance for the Unified Message Bus (UMB)" \
     vendor="Factory 2.0" \
     license="GPLv3"
-RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+RUN yum -y install epel-release && \
     yum -y install fedmsg-hub datanommer python2-psycopg2 git && \
     yum -y clean all
 RUN cd /var/tmp && \
