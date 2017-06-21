@@ -3,8 +3,8 @@ LABEL \
     name="datanommer instance for the Unified Message Bus (UMB)" \
     vendor="Factory 2.0" \
     license="GPLv3"
-RUN yum -y install epel-release && \
-    yum -y install fedmsg-hub \
+RUN yum -y install epel-release && yum -y clean all
+RUN yum -y install fedmsg-hub \
                    python-datanommer-consumer datanommer-commands \
                    python-psycopg2 \
                    git && \
