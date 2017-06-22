@@ -5,9 +5,9 @@ LABEL \
     license="GPLv3"
 RUN yum -y install epel-release && yum -y clean all
 RUN yum -y --enablerepo=epel-testing install \
+        datagrepper \
         fedmsg-hub \
         python-datanommer-consumer datanommer-commands \
-        datagrepper \
         python-psycopg2 \
         postgresql \
         git && \
