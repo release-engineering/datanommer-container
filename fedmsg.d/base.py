@@ -7,4 +7,5 @@ config = dict(
     stomp_heartbeat=1000,
     stomp_ssl_crt='/secrets/cert',
     stomp_ssl_key='/secrets/key',
+    stomp_ack_mode='client',
 )
