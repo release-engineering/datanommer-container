@@ -9,6 +9,7 @@ RUN yum -y --enablerepo=epel-testing install \
         python-datanommer-consumer datanommer-commands \
         datagrepper \
         python-psycopg2 \
+        postgresql \
         git && \
     yum -y clean all
 RUN cd /var/tmp && \
