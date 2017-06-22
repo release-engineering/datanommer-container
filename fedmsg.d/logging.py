@@ -1,3 +1,5 @@
+import os
+
 # Setup fedmsg logging.
 # See the following for constraints on this format https://bit.ly/Xn1WDn
 bare_format = "[%(asctime)s][%(name)10s %(levelname)7s] %(message)s"
@@ -15,23 +17,28 @@ config = dict(
             console={
                 "class": "logging.StreamHandler",
                 "formatter": "bare",
-                "level": "DEBUG",
+                "level": os.environ.get("LOGLEVEL", "WARNING"),
                 "stream": "ext://sys.stdout",
             },
         ),
         loggers=dict(
             fedmsg={
-                "level": "DEBUG",
+                "level": os.environ.get("LOGLEVEL", "WARNING"),
                 "propagate": False,
                 "handlers": ["console"],
             },
             moksha={
-                "level": "DEBUG",
+                "level": os.environ.get("LOGLEVEL", "WARNING"),
+                "propagate": False,
+                "handlers": ["console"],
+            },
+            stomper={
+                "level": os.environ.get("LOGLEVEL", "WARNING"),
                 "propagate": False,
                 "handlers": ["console"],
             },
             datanommer={
-                "level": "DEBUG",
+                "level": os.environ.get("LOGLEVEL", "WARNING"),
                 "propagate": False,
                 "handlers": ["console"],
             },
