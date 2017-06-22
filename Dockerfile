@@ -7,6 +7,7 @@ RUN yum -y install epel-release && yum -y clean all
 RUN yum -y --enablerepo=epel-testing install \
         fedmsg-hub \
         python-datanommer-consumer datanommer-commands \
+        datagrepper \
         python-psycopg2 \
         git && \
     yum -y clean all
