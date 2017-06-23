@@ -18,6 +18,7 @@ RUN yum -y --enablerepo=epel-testing install \
 RUN sed -i -e 's|^Listen 80$|Listen 8080|' \
            -e 's|ErrorLog .*$|ErrorLog "/dev/stderr"|' \
            -e 's|CustomLog .*$|CustomLog "/dev/stdout" combined|' \
+           -e '/^#ServerName/a ServerName localhost' \
            -e '/^ServerRoot/a PidFile /var/tmp/httpd.pid' \
     /etc/httpd/conf/httpd.conf
 RUN chmod a+rxw /run/httpd/
