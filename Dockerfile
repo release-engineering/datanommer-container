@@ -20,6 +20,7 @@ RUN sed -i -e 's|^Listen 80$|Listen 8080|' \
            -e 's|CustomLog .*$|CustomLog "/dev/stdout" combined|' \
            -e '/^ServerRoot/a PidFile /var/tmp/httpd.pid' \
     /etc/httpd/conf/httpd.conf
+RUN chmod a+rxw /run/httpd/
 RUN mkdir -p /var/tmp/datagrepper/python-eggs
 COPY datagrepper.conf /etc/httpd/conf.d/
 COPY fedmsg.d/ /etc/fedmsg.d/
