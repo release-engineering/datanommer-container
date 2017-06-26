@@ -5,7 +5,7 @@ LABEL \
     license="GPLv3"
 ENTRYPOINT fedmsg-hub
 EXPOSE 8080
-RUN yum -y install httpd mod_wsgi && yum -y clean all
+RUN yum -y install python-gunicorn && yum -y clean all
 RUN yum -y install epel-release && yum -y clean all
 RUN yum -y --enablerepo=epel-testing install \
         datagrepper \
@@ -15,15 +15,6 @@ RUN yum -y --enablerepo=epel-testing install \
         postgresql \
         git && \
     yum -y clean all
-RUN sed -i -e 's|^Listen 80$|Listen 8080|' \
-           -e 's|ErrorLog .*$|ErrorLog "/dev/stderr"|' \
-           -e 's|CustomLog .*$|CustomLog "/dev/stdout" combined|' \
-           -e '/^#ServerName/a ServerName localhost' \
-           -e '/^ServerRoot/a PidFile /var/tmp/httpd.pid' \
-    /etc/httpd/conf/httpd.conf
-RUN chmod a+rxw /run/httpd/
-RUN mkdir -p /var/tmp/datagrepper/python-eggs
-COPY datagrepper.conf /etc/httpd/conf.d/
 COPY fedmsg.d/ /etc/fedmsg.d/
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
