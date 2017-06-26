@@ -20,4 +20,6 @@ RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
     python setup.py install
+# Install the latest moksha.hub, just to test it.
+RUN yum -y install https://kojipkgs.fedoraproject.org//packages/python-moksha-hub/1.5.2/1.el7/noarch/python-moksha-hub-1.5.2-1.el7.noarch.rpm
 USER 1001
