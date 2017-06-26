@@ -16,6 +16,7 @@ RUN yum -y --enablerepo=epel-testing install \
         git && \
     yum -y clean all
 COPY fedmsg.d/ /etc/fedmsg.d/
+COPY static/ /usr/lib/python2.7/site-packages/datagrepper/static/
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
