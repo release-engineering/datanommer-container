@@ -22,4 +22,10 @@ RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
     python setup.py install
+# Temporarilly install fedmsg from git to try some stuff out
+RUN cd /var/tmp && \
+    git clone https://github.com/fedora-infra/fedmsg && \
+    cd fedmsg && \
+    git checkout feature/headers && \
+    python setup.py install
 USER 1001
