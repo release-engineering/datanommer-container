@@ -20,10 +20,10 @@ RUN cd /var/tmp && \
 # Build-time dependencies of fedmsg, only required if installing from git
 RUN yum -y install gcc libffi-devel openssl-devel python-devel && \
     yum -y clean all
-# Temporarilly install fedmsg from git to try some stuff out
+# Temporarily install fedmsg from git to try some stuff out
 RUN cd /var/tmp && \
     git clone https://github.com/fedora-infra/fedmsg && \
     cd fedmsg && \
-    git checkout feature/headers && \
+    git checkout develop && \
     python setup.py install
 USER 1001
