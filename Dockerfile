@@ -3,12 +3,9 @@ LABEL \
     name="datanommer instance for the Unified Message Bus (UMB)" \
     vendor="Factory 2.0" \
     license="GPLv3"
-ENTRYPOINT fedmsg-hub
-EXPOSE 8080
-RUN yum -y install python-gunicorn && yum -y clean all
+CMD ["fedmsg-hub"]
 RUN yum -y install epel-release && yum -y clean all
 RUN yum -y --enablerepo=epel-testing install \
-        datagrepper \
         fedmsg-hub \
         python-datanommer-consumer datanommer-commands \
         python-psycopg2 \
@@ -16,8 +13,6 @@ RUN yum -y --enablerepo=epel-testing install \
         git && \
     yum -y clean all
 COPY fedmsg.d/ /etc/fedmsg.d/
-COPY static/ /usr/lib/python2.7/site-packages/datagrepper/static/
-RUN echo "DATAGREPPER_DOC_PATH='/var/tmp/fedmsg_meta_umb/datagrepper-docs/'" >> /etc/datagrepper/datagrepper.cfg
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
