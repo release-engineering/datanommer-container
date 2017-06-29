@@ -16,6 +16,7 @@ COPY fedmsg.d/ /etc/fedmsg.d/
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
+    git checkout b716714 && \
     python setup.py install
 # Build-time dependencies of fedmsg, only required if installing from git
 RUN yum -y install gcc libffi-devel openssl-devel python-devel && \
