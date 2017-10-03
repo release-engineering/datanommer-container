@@ -13,18 +13,12 @@ RUN yum -y --enablerepo=epel-testing install \
         git && \
     yum -y clean all
 COPY fedmsg.d/ /etc/fedmsg.d/
+# Build-time dependencies of fedmsg_meta_umb, only required if installing from git
+RUN yum -y install gcc libffi-devel openssl-devel python-devel && \
+    yum -y clean all
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
     git checkout 59ae65b && \
-    python setup.py install
-# Build-time dependencies of fedmsg, only required if installing from git
-RUN yum -y install gcc libffi-devel openssl-devel python-devel && \
-    yum -y clean all
-# Temporarily install fedmsg from git to try some stuff out
-RUN cd /var/tmp && \
-    git clone https://github.com/fedora-infra/fedmsg && \
-    cd fedmsg && \
-    git checkout develop && \
     python setup.py install
 USER 1001
