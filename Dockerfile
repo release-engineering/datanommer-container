@@ -19,6 +19,6 @@ RUN yum -y install gcc libffi-devel openssl-devel python-devel && \
 RUN cd /var/tmp && \
     git clone https://github.com/release-engineering/fedmsg_meta_umb && \
     cd fedmsg_meta_umb && \
-    git checkout 7b540ba && \
+    git checkout ef3d46a && \
     python setup.py install
 USER 1001
