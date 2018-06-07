@@ -9,3 +9,4 @@ config = dict(
     stomp_ssl_key='/secrets/key',
     stomp_ack_mode='auto',
 )
+config['moksha.blocking_mode'] = True
