@@ -10,7 +10,7 @@ RUN dnf -y install \
         python3-datanommer-consumer datanommer-commands \
         python3-fedmsg-meta-umb \
         python3-psycopg2 \
-        postgresql \
-    yum -y clean all
+        postgresql && \
+    dnf -y clean all
 COPY fedmsg.d/ /etc/fedmsg.d/
 USER 1001
