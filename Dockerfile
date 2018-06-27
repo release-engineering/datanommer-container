@@ -12,5 +12,6 @@ RUN dnf -y install \
         python3-psycopg2 \
         postgresql && \
     dnf -y clean all
+RUN rm -f /etc/fedmsg.d/*
 COPY fedmsg.d/ /etc/fedmsg.d/
 USER 1001
