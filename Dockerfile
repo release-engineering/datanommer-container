@@ -1,4 +1,4 @@
-FROM fedora:28
+FROM fedora:31
 LABEL \
     name="datanommer" \
     vendor="Factory 2.0" \
