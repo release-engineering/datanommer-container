@@ -1,9 +1,13 @@
 FROM registry.fedoraproject.org/fedora-minimal:33
 
+ENV DATANOMMER_VERSION="0.2.0"
+
 LABEL name="datanommer" \
+      version="$DATANOMMER_VERSION" \
       vendor="Red Hat EXD Software Production" \
       license="GPL-3.0-or-later" \
       org.opencontainers.image.title="datanommer" \
+      org.opencontainers.image.version="$DATANOMMER_VERSION" \
       org.opencontainers.image.description="datanommer in a container, suitable for running on OpenShift" \
       org.opencontainers.image.vendor="Red Hat EXD Software Production" \
       org.opencontainers.image.authors="EXD Messaging Guild <exd-guild-messaging@redhat.com>" \
