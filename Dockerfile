@@ -16,13 +16,14 @@ LABEL name="datanommer" \
 CMD ["fedmsg-hub-3"]
 COPY repos/ /etc/yum.repos.d/
 
-RUN microdnf install \
+ENV DNF_CMD="microdnf --setopt=install_weak_deps=0"
+RUN $DNF_CMD install \
         python3-fedmsg \
         python3-datanommer-consumer datanommer-commands \
         python3-fedmsg-meta-umb \
         python3-psycopg2 \
         postgresql && \
-    dnf -y clean all
+    $DNF_CMD clean all
 RUN rm -f /etc/fedmsg.d/*
 COPY fedmsg.d/ /etc/fedmsg.d/
 
