@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-minimal:33
+FROM registry.fedoraproject.org/fedora:33
 
 ENV DATANOMMER_VERSION="0.2.0"
 
@@ -20,7 +20,7 @@ LABEL name="datanommer" \
 CMD ["fedmsg-hub-3"]
 COPY repos/ /etc/yum.repos.d/
 
-ENV DNF_CMD="microdnf --setopt=install_weak_deps=0"
+ENV DNF_CMD="dnf -y --setopt=install_weak_deps=0"
 RUN $DNF_CMD install \
         python3-fedmsg \
         python3-datanommer-consumer datanommer-commands \

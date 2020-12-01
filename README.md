@@ -2,13 +2,13 @@
 
 This repository contains configuration and supporting files for running
 [datanommer](https://github.com/fedora-infra/datanommer) in a container.
-The image is built on top of the [Fedora](https://getfedora.org/) 28 base
+The image is built on top of the [Fedora](https://getfedora.org/) 33 base
 image.
 
 ## Build
 
 To build the container in OpenShift, you can run:
-```
+```bash
 oc new-build https://github.com/release-engineering/datanommer-container
 ```
 
