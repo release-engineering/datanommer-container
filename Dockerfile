@@ -1,6 +1,7 @@
 FROM registry.fedoraproject.org/fedora:33
 
 ENV DATANOMMER_VERSION="0.2.0"
+ENV FEDMSG_META_UMB_VERSION="0.0.4"
 
 LABEL name="datanommer" \
       version="$DATANOMMER_VERSION" \
